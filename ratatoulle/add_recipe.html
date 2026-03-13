@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratatoulle | Add Recipe</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <table width="100%" border="0" cellpadding="10">
+                <tr>
+                    <td><h2>Ratatoulle</h2></td>
+                    <td align="right">
+                        <a href="index.html">Home</a> |
+                        <a href="search.html">Browse Recipes</a> |
+                        <a href="recipe_list.html">Manage Recipes</a> |
+                        <a href="login.html">Logout</a>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <hr>
+
+    <main style="max-width: 700px; margin: auto;">
+
+        <h1>Add New Recipe</h1>
+        <p><b>Admin access only.</b> Fill in all required fields to publish a recipe.</p>
+
+        <form action="recipe_list.html" method="get">
+
+            <h3>Basic Information</h3>
+
+            <table border="0" cellpadding="6">
+                <tr>
+                    <td><label for="recipe_name">Recipe Name: *</label></td>
+                    <td><input type="text" id="recipe_name" name="recipe_name" size="40" maxlength="100" placeholder="e.g. Spaghetti Carbonara" required></td>
+                </tr>
+                <tr>
+                    <td><label for="course">Course: *</label></td>
+                    <td>
+                        <select id="course" name="course" required>
+                            <option value="">-- Select course --</option>
+                            <option value="appetizers">Appetizers</option>
+                            <option value="main course">Main Course</option>
+                            <option value="dessert">Dessert</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><label for="description">Description: *</label></td>
+                    <td><textarea id="description" name="description" rows="4" cols="40" maxlength="500" placeholder="Describe the recipe..." required></textarea></td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <h3>Ingredients</h3>
+            <p>Enter each ingredient with its name and quantity.</p>
+
+            <table border="1" cellpadding="8" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient Name *</th>
+                        <th>Quantity *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" name="ing_name_1" placeholder="e.g. Flour" required></td>
+                        <td><input type="text" name="ing_qty_1"  placeholder="e.g. 200g"  required></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><input type="text" name="ing_name_2" placeholder="e.g. Eggs"></td>
+                        <td><input type="text" name="ing_qty_2"  placeholder="e.g. 3"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><input type="text" name="ing_name_3" placeholder="e.g. Salt"></td>
+                        <td><input type="text" name="ing_qty_3"  placeholder="e.g. 1 tsp"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><input type="text" name="ing_name_4" placeholder="e.g. Butter"></td>
+                        <td><input type="text" name="ing_qty_4"  placeholder="e.g. 50g"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><input type="text" name="ing_name_5" placeholder="e.g. Garlic"></td>
+                        <td><input type="text" name="ing_qty_5"  placeholder="e.g. 2 cloves"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <input type="submit" value="Add Recipe">
+            &nbsp;
+            <a href="recipe_list.html">Cancel</a>
+
+        </form>
+
+    </main>
+</body>
+</html>
