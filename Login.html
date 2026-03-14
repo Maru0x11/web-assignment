@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Ratatoulle | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            margin: 10px;
+        }
+
+        form {
+            font-size: 20px
+        }
+
+        input {
+            font-size: 18px;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <table width="100%" border="0" cellpadding="10">
+                <tr>
+                    <td>
+                        <h2>Ratatoulle</h2>
+                    </td>
+                    <td align="right">
+                        <a href="index.html">Home</a> |
+                        <a href="recipes.html">Recipes</a> |
+                        <a href="favorites.html">Favorites</a> |
+                        <a href="signup.html">Sign Up</a>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <hr>
+    
+    <main style="max-width:500px ;  margin: auto; text-align: center; margin-top: 100px; height: auto; ">
+        <div>
+            <h2>Login</h2>
+            <form action="recipes.html" method="post"> <div>
+                    <label for="username" style="margin-right: 90px;">username/email:</label> <br>
+                    <input type="text" id="username" name="username" placeholder="Bo0oda/abcd@gmail.com">
+                </div>
+                
+                <div>
+                    <label for="password" style="margin-right: 140px;"> password:</label> <br>
+                    <input type="password" id="password" name="password" placeholder="@#$%^&*!">
+                </div>
+
+                <div>
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+            
+            <br>
+            <label>Don't have an account? </label>
+            <a href="signup.html"> sign up</a>
+        </div>
+    </main>
+</body>
+
+</html>
