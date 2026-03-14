@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Ratatoulle | Recipes List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div { margin: 10px; }
+        .recipe-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: left;
+            border-radius: 8px;
+        }
+        .search-container {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        input[type="text"] { font-size: 18px; padding: 5px; width: 70%; }
+        button { padding: 5px 15px; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <table width="100%" border="0" cellpadding="10">
+                <tr>
+                    <td><h2>Ratatoulle</h2></td>
+                    <td align="right">
+                        <a href="index.html">Home</a> |
+                        <a href="recipelist.html"><b>Recipes</b></a> |
+                        <a href="favorites.html">Favorites</a> |
+                        <a href="login.html">Logout</a>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <hr>
+
+    <main style="text-align: center;">
+        <h2>All Recipes</h2>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search for a recipe...">
+            <button type="button">Search</button>
+        </div>
+
+        <div id="recipesList">
+            
+            <div class="recipe-card">
+                <h3>Recipe Name: Chicken Pasta</h3>
+                <p>Course: Main Course</p>
+                <a href="recipe_details.html"><button>View Details</button></a>
+                <button style="background-color: #f0f0f0;">Add to Favorites</button>
+            </div>
+
+            <div class="recipe-card">
+                <h3>Recipe Name: Salad</h3>
+                <p>Course: Appetizer</p>
+                <a href="recipe_details.html"><button>View Details</button></a>
+                <button style="background-color: #f0f0f0;">Add to Favorites</button>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
