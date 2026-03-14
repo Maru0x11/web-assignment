@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ratatoulle | Recipe Detail</title>
+    <title>Ratatoulle | Recipe Detail (Admin)</title>
 </head>
 <body>
 
-    <iframe src="nav_user.html" width="100%" height="60" style="border:none; overflow:hidden;"></iframe>
+    <iframe src="nav_admin.html" width="100%" height="60" style="border:none; overflow:hidden;"></iframe>
     <hr>
 
     <main style="max-width: 700px; margin: auto;">
@@ -38,13 +38,15 @@
         </table>
 
         <br>
-        <form action="favorites.html" method="post">
+        <a href="add_recipe.html">Edit Recipe</a>
+        &nbsp;
+        <form action="manage_recipes.html" method="post" style="display:inline;">
             <input type="hidden" name="recipe_id" value="">
-            <input type="submit" value="Add to Favorites">
+            <input type="submit" value="Delete Recipe">
         </form>
 
-        <br>
-        <a href="search.html">Back to Browse</a>
+        <br><br>
+        <a href="manage_recipes.html">Back to Manage Recipes</a>
 
     </main>
 </body>

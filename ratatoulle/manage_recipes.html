@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Ratatoulle | Recipes List</title>
+    <title>Ratatoulle | Manage Recipes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         div { margin: 10px; }
@@ -24,14 +24,16 @@
 
 <body>
 
-    <iframe src="nav_user.html" width="100%" height="60" style="border:none; overflow:hidden;"></iframe>
+    <iframe src="nav_admin.html" width="100%" height="60" style="border:none; overflow:hidden;"></iframe>
     <hr>
 
     <main style="text-align: center;">
-        <h2>All Recipes</h2>
+        <h2>Manage Recipes</h2>
+
+        <a href="add_recipe.html">+ Add New Recipe</a>
 
         <div class="search-container">
-            <form action="search.html" method="get">
+            <form action="manage_recipes.html" method="get">
                 <input type="text" name="query" placeholder="Search by dish name or ingredient...">
                 <br><br>
                 <input type="radio" name="search_type" value="name" checked> Dish Name &nbsp;
@@ -46,7 +48,7 @@
                 &nbsp;
                 <button type="submit">Search</button>
                 &nbsp;
-                <a href="search.html">Clear</a>
+                <a href="manage_recipes.html">Clear</a>
             </form>
         </div>
 
@@ -55,9 +57,13 @@
             <div class="recipe-card">
                 <h3>Recipe Name: Ratatouille</h3>
                 <p>Course: Main Course</p>
-                <p>A classic French Provencal dish that consists of stewed vegetables.</p>
-                <a href="recipe_detail.html"><button>View Details</button></a>
-                <button style="background-color: #f0f0f0;">Add to Favorites</button>
+                <p>A classic French Provencal dish that consists of stewed vegetables</p>
+                <a href="recipe_detail_admin.html"><button>View Details</button></a>
+                <a href="add_recipe.html"><button>Edit</button></a>
+                <form action="manage_recipes.html" method="post" style="display:inline;">
+                    <input type="hidden" name="recipe_id" value="1">
+                    <input type="submit" value="Delete">
+                </form>
             </div>
 
         </div>

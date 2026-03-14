@@ -20,28 +20,33 @@
 </head>
 
 <body>
-   
+
     <iframe src="nav.html" width="100%" height="60" style="border:none; overflow:hidden;"></iframe>
     <hr>
-    
-    <main style="max-width:500px ;  margin: auto; text-align: center; margin-top: 100px; height: auto; ">
+
+    <main style="max-width:500px; margin: auto; text-align: center; margin-top: 100px; height: auto;">
         <div>
             <h2>Login</h2>
-            <form action="index.html" method="post"> <div>
+            <form action="index.html" method="post">
+                <div>
                     <label for="username" style="margin-right: 90px;">username/email:</label> <br>
                     <input type="text" id="username" name="username" placeholder="Bo0oda/abcd@gmail.com">
                 </div>
-                
                 <div>
                     <label for="password" style="margin-right: 140px;"> password:</label> <br>
                     <input type="password" id="password" name="password" placeholder="@#$%^&*!">
                 </div>
-
                 <div>
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Login as User">
                 </div>
             </form>
-            
+
+            <form action="index_admin.html" method="post">
+                <div>
+                    <input type="submit" value="Login as Admin">
+                </div>
+            </form>
+
             <br>
             <label>Don't have an account? </label>
             <a href="signup.html"> sign up</a>
