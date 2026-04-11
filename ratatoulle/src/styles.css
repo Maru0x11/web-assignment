@@ -54,6 +54,30 @@ body{
   font-size: 20px;
 }
 
+/*Admin nav bar*/
+
+.nav-bar-admin{
+  padding: 20px;
+  background-color: #1e1e1e;
+}
+
+.nav-bar-admin ul{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.nav-bar-admin li{
+  list-style-type: none;
+}
+
+.nav-bar-admin ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+
 /**index**/
 
 /*man section*/
@@ -89,4 +113,108 @@ body{
 .card-index h4{
   font-size: 20px;
   margin-bottom: 5px;
+}
+
+/**end index**/
+
+
+
+
+
+
+
+
+/** begin add_recipe **/
+
+.main-add-recipe{
+  max-width: 100%;
+  margin: auto;
+
+}
+
+.main-add-recipe h1,
+.main-add-recipe h3{
+  margin:10px;
+  font-weight: bold;
+}
+
+.main-add-recipe p{
+  margin:10px;
+  font-weight: lighter;
+}
+
+
+.form-group-add-recipe{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.form-group-add-recipe label{
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group-add-recipe input,
+.form-group-add-recipe select,
+.form-group-add-recipe textarea{
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+.form-group-add-recipe input:focus,
+.form-group-add-recipe select:focus,
+.form-group-add-recipe textarea:focus{
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.btn-submit{
+  padding: 12px 24px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.btn-submit:hover{
+  background-color: #45a049;
+}
+
+.btn-cancel{
+  margin-left: 15px;
+  color: #e0e0e0;
+}
+
+.ingredients-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.ingredients-table th,
+.ingredients-table td{
+  padding: 10px;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+.ingredients-table th{
+  background-color: #1e1e1e;
+}
+
+.ingredients-table input{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
 }
