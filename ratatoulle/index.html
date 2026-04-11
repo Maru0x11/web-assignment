@@ -4,39 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatoulle | Home</title>
+    <link href="src/styles.css" rel="stylesheet">
+    <script src="src/index.js"></script>
 </head>
 <body>
-    <iframe src="nav_user.html" width="100%" height="60" style="border:none; overflow:hidden;"></iframe>
-    <hr>
-    <main style="max-width: 1000px; margin: auto; text-align: center;">
+  <nav class="nav-bar-user">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Browse</a></li>
+      <li><a href="favorites.html">Favourites</a></li>
+      <li><a href="login.html">Log Out</a></li>
+    </ul>
+  </nav>
+    <main class="main-index">
 
-        <section style="padding: 20px 20px;">
+        <section class="section-index">
             <h1>Welcome to Ratatoulle</h1>
             <p>The best place to find, save, and share your favorite recipes.</p>
 
             <br>
-            <img src="assets/images/1.webp" alt="Delicious Food" style="max-width: 100%; height: auto; border-radius: 8px;">
+            <img src="src/assets/images/1.webp" alt="Delicious Food" class="asset-img-first">
             <br>
         </section>
         <hr>
-        <section style="padding: 20px;">
+        <section class="section-index">
             <h3>Why Join Ratatoulle?</h3>
-            <table width="100%" border="0">
-                <tr>
-                    <td width="33%">
+            <div class="container-index">
+                    <div class="card-index">
                         <h4>Browse</h4>
                         <p>Explore recipes from appetizers to desserts.</p>
-                    </td>
-                    <td width="33%">
+                    </div>
+                    <div class="card-index">
                         <h4>Connect</h4>
                         <p>Join a community of home cooks and professional chefs.</p>
-                    </td>
-                    <td width="33%">
+                    </div>
+                    <div class="card-index">
                         <h4>Organize</h4>
                         <p>Save your favorite recipes to your personal profile.</p>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+            </div>
         </section>
     </main>
 </body>
