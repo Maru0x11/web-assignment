@@ -53,7 +53,222 @@ body{
   color: white;
   font-size: 20px;
 }
+/** login page **/
 
+.login-main {
+  max-width: 480px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+}
+
+.login-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 36px 32px;
+}
+
+.login-card h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.login-form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #aaaaaa;
+}
+
+.login-form-group input {
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 15px;
+}
+
+.login-form-group input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.btn-login:hover {
+  background-color: #45a049;
+}
+
+.btn-login-admin {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-login-admin:hover {
+  background-color: #2a2a2a;
+  border-color: #555;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.login-divider span {
+  font-size: 13px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #333;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.login-footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/** end login page **/
+
+/** signup page **/
+
+.signup-main {
+  max-width: 480px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+}
+
+.signup-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 36px 32px;
+}
+
+.signup-card h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.signup-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.signup-form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #aaaaaa;
+}
+
+.signup-form-group input {
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 15px;
+}
+
+.signup-form-group input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.signup-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.signup-checkbox-group label {
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+.signup-checkbox-group input[type="checkbox"] {
+  accent-color: #4CAF50;
+  width: 16px;
+  height: 16px;
+}
+
+.btn-signup-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-signup-submit:hover {
+  background-color: #45a049;
+}
+
+.signup-footer {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.signup-footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/** end signup page **/
 /*Admin nav bar*/
 
 .nav-bar-admin{

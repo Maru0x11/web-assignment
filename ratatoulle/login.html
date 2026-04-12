@@ -15,37 +15,35 @@
   </nav>
     <hr>
 
-    <main style="max-width:500px; margin: auto; text-align: center; margin-top: 100px; height: auto;">
-        <div>
-            <h2>Login</h2>
-            <form action="index.html" method="post">
-                <div>
-                    <label for="username" style="margin-right: 90px;">username/email:</label> <br>
-                    <input type="text" id="username" name="username" placeholder="Bo0oda/abcd@gmail.com">
-                </div>
-                <div>
-                    <label for="password" style="margin-right: 140px;"> password:</label> <br>
-                    <input type="password" id="password" name="password" placeholder="@#$%^&*!">
-                </div>
-                <div>
-                    <input type="submit" value="Login as User">
-                </div>
-            </form>
+    <main class="login-main">
+  <div class="login-card">
+    <h2>Login</h2>
+    <p id="error-message"></p>
 
-            <form action="index_admin.html" method="post">
-                <div>
-                    <input type="submit" value="Login as Admin">
-                </div>
-            </form>
+    <div class="login-form-group">
+      <label for="username">Username / Email</label>
+      <input type="text" id="username" name="username" placeholder="Bo0oda / abcd@gmail.com">
+    </div>
+    <div class="login-form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="••••••••">
+    </div>
 
-            <br>
-            <label>Don't have an account? </label>
-            <a href="signup.html"> sign up</a>
-        </div>
-         <p id="error-message" style="color:red; display:none;"></p>
-    </main>
-        <script src="src/login.js"></script>
+    <button type="submit" class="btn-login" form="user-form">Login as User</button>
 
+    <div class="login-divider"><span>or</span></div>
+
+    <button type="submit" class="btn-login-admin" form="admin-form">Login as Admin</button>
+
+    <div class="login-footer">
+      Don't have an account? <a href="signup.html">Sign up</a>
+    </div>
+  </div>
+
+  <form id="user-form"></form>
+  <form id="admin-form"></form>
+</main>
+<script src="src/login.js"></script>
 </body>
 
 </html>
