@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatoulle | Recipe Detail</title>
-     <link href="src/styles.css" rel="stylesheet">
+    <link href="src/styles.css" rel="stylesheet">
 </head>
 <body>
   <nav class="nav-bar-user">
@@ -18,9 +18,9 @@
 
     <main style="max-width: 700px; margin: auto;">
 
-        <h1>Ratatouille</h1>
-        <p><b>Course:</b> Main Course</p>
-        <p>A classic French Provencal dish that consists of stewed vegetables.</p>
+        <h1 id="recipe-name"></h1>
+        <p><b>Course:</b> <span id="recipe-course"></span></p>
+        <p id="recipe-description"></p>
 
         <h3>Ingredients</h3>
         <table border="1" cellpadding="8" cellspacing="0">
@@ -31,16 +31,7 @@
                     <th>Quantity</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr><td>1</td><td>Eggplant</td><td>1</td></tr>
-                <tr><td>2</td><td>Sliced Zucchini</td><td>2</td></tr>
-                <tr><td>3</td><td>Garlic</td><td>3 cloves</td></tr>
-                <tr><td>4</td><td>Parmesan Cheese</td><td>1 cup</td></tr>
-                <tr><td>5</td><td>Dried Parsley</td><td>2 tsp</td></tr>
-                <tr><td>6</td><td>Large Tomato</td><td>2</td></tr>
-                <tr><td>7</td><td>Large Onion</td><td>1</td></tr>
-                <tr><td>8</td><td>Green or Red Pepper</td><td>1</td></tr>
-            </tbody>
+            <tbody id="recipe-ingredients"></tbody>
         </table>
 
         <br>
@@ -53,5 +44,22 @@
         <a href="search.html">Back to Browse</a>
 
     </main>
+
+    <script>
+        const id = parseInt(new URLSearchParams(window.location.search).get('id'));
+        const recipe = JSON.parse(localStorage.getItem('recipesArr') || '[]')[id];
+
+        if (recipe) {
+            document.getElementById('recipe-name').textContent = recipe.name;
+            document.getElementById('recipe-course').textContent = recipe.course;
+            document.getElementById('recipe-description').textContent = recipe.description;
+
+            const tbody = document.getElementById('recipe-ingredients');
+            recipe.ingredients.forEach((ing, i) => {
+                if (!ing.name.trim()) return;
+                tbody.innerHTML += `<tr><td>${i + 1}</td><td>${ing.name}</td><td>${ing.quantity}</td></tr>`;
+            });
+        }
+    </script>
 </body>
 </html>

@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatoulle | Recipe Detail (Admin)</title>
+    <link href="src/styles.css" rel="stylesheet">
+    <script src="src/delete_modal.js"></script>
+    <script type="module" src="src/delete_recipe.js"></script>
 </head>
 <body>
 
-
 <nav class="nav-bar-admin">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="manage_recipes.html">Mange Recipes</a></li>
+      <li><a href="index_admin.html">Home</a></li>
+      <li><a href="manage_recipes.html">Manage Recipes</a></li>
       <li><a href="add_recipe.html">Add Recipes</a></li>
       <li><a href="login.html">Log Out</a></li>
     </ul>
@@ -19,42 +21,55 @@
 
 <main style="max-width: 700px; margin: auto;">
 
-        <h1>Ratatouille</h1>
-        <p><b>Course:</b> Main Course</p>
-        <p>A classic French Provencal dish that consists of stewed vegetables.</p>
+    <h1 id="detail-name"></h1>
+    <p><b>Course:</b> <span id="detail-course"></span></p>
+    <p id="detail-description"></p>
 
-        <h3>Ingredients</h3>
-        <table border="1" cellpadding="8" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Ingredient</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Eggplant</td><td>1</td></tr>
-                <tr><td>2</td><td>Sliced Zucchini</td><td>2</td></tr>
-                <tr><td>3</td><td>Garlic</td><td>3 cloves</td></tr>
-                <tr><td>4</td><td>Parmesan Cheese</td><td>1 cup</td></tr>
-                <tr><td>5</td><td>Dried Parsley</td><td>2 tsp</td></tr>
-                <tr><td>6</td><td>Large Tomato</td><td>2</td></tr>
-                <tr><td>7</td><td>Large Onion</td><td>1</td></tr>
-                <tr><td>8</td><td>Green or Red Pepper</td><td>1</td></tr>
-            </tbody>
-        </table>
+    <h3>Ingredients</h3>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ingredient</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody id="detail-ingredients"></tbody>
+    </table>
 
-        <br>
-        <a href="add_recipe.html">Edit Recipe</a>
-        &nbsp;
-        <form action="manage_recipes.html" method="post" style="display:inline;">
-            <input type="hidden" name="recipe_id" value="">
+    <br>
+    <a href="add_recipe.html">Edit Recipe</a>
+    &nbsp;
+    <div id="recipesList" style="display:inline;">
+        <form class="delete-recipe-form" style="display:inline;">
+            <input type="hidden" class="recipe_id" value="">
             <input type="submit" value="Delete Recipe">
         </form>
+    </div>
 
-        <br><br>
-        <a href="manage_recipes.html">Back to Manage Recipes</a>
+    <br><br>
+    <a href="manage_recipes.html">Back to Manage Recipes</a>
 
-    </main>
+</main>
+
+<script>
+    const id = parseInt(new URLSearchParams(window.location.search).get('id'));
+    const recipe = JSON.parse(localStorage.getItem('recipesArr') || '[]')[id];
+
+    if (recipe) {
+        document.getElementById('detail-name').textContent = recipe.name;
+        document.getElementById('detail-course').textContent = recipe.course;
+        document.getElementById('detail-description').textContent = recipe.description;
+
+        /* Set the index so delete_recipe.js knows which entry to remove */
+        document.querySelector('.recipe_id').value = id;
+
+        const tbody = document.getElementById('detail-ingredients');
+        recipe.ingredients.forEach((ing, i) => {
+            if (!ing.name.trim()) return;
+            tbody.innerHTML += `<tr><td>${i + 1}</td><td>${ing.name}</td><td>${ing.quantity}</td></tr>`;
+        });
+    }
+</script>
 </body>
 </html>

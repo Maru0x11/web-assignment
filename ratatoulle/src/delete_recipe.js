@@ -18,7 +18,14 @@ if (recipesContainer) {
             openDeleteModal(recipeName, function() {
                 recipesArr.splice(index, 1);
                 localStorage.setItem('recipesArr', JSON.stringify(recipesArr));
-                renderRecipes();
+                if(document.querySelector('.recipe-card'))
+                {
+                    renderRecipes();
+                }
+                else
+                {
+                    window.location.href = 'manage-recipes.html';
+                }
             });
         }
     });

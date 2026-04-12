@@ -1,27 +1,10 @@
 <html>
 
 <head>
-    <title>Ratatoulle | Recipes List</title>
+    <title>Ratatoullie | Recipes List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        div { margin: 10px; }
-        .recipe-card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin: 20px auto;
-            max-width: 400px;
-            text-align: left;
-            border-radius: 8px;
-        }
-        .search-container {
-            margin: 30px auto;
-            max-width: 500px;
-        }
-        input[type="text"] { font-size: 18px; padding: 5px; width: 70%; }
-        button { padding: 5px 15px; cursor: pointer; }
-    </style>
-
- <link href="src/styles.css" rel="stylesheet">
+    <link href="src/styles.css" rel="stylesheet">
+    <script type="module" src="src/search.js"></script>
 </head>
 
 <body>
@@ -59,15 +42,6 @@
         </div>
 
         <div id="recipesList">
-
-            <div class="recipe-card">
-                <h3>Recipe Name: Ratatouille</h3>
-                <p>Course: Main Course</p>
-                <p>A classic French Provencal dish that consists of stewed vegetables.</p>
-                <a href="recipe_detail.html"><button>View Details</button></a>
-                <button style="background-color: #f0f0f0;">Add to Favorites</button>
-            </div>
-
         </div>
     </main>
 </body>

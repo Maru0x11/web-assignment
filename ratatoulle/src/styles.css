@@ -323,6 +323,25 @@ body{
   background-color: #a93226;
 }
 
+/* anchor styled to match .recipe-card button, used instead of <a><button> nesting */
+.recipe-card .btn-card{
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-right: 6px;
+  text-decoration: none;
+}
+
+.recipe-card .btn-card:hover{
+  background-color: #45a049;
+}
+
 .recipe-card input[type="submit"]{
   padding: 6px 14px;
   background-color: #c0392b;

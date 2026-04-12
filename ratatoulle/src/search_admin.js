@@ -1,7 +1,7 @@
 /* search_logic.js */
-import { renderRecipesUser } from './render_recipes.js';
+import { renderRecipes } from './render_recipes.js';
 
-renderRecipesUser();
+renderRecipes();
 
 const searchForm = document.querySelector('.search-container form');
 
@@ -38,6 +38,6 @@ if (searchForm) {
         });
 
         // call render recipes on the partially filtered results
-        renderRecipesUser(filteredResults);
+        renderRecipes(filteredResults);
     });
 }
