@@ -1,15 +1,18 @@
-import { recipesArr } from './add_recipe.js'
+import { renderRecipes } from './render_recipes.js';
 
 const recipesContainer = document.getElementById('recipesList');
 
-if(recipesContainer) {
-    rescipesContainer.addEventListener('submit', function(e) {
+if (recipesContainer) {
+    recipesContainer.addEventListener('submit', function(e) {
 
-        if(e.target.classList.contains('delete-recipe-form')) {
+        if (e.target.classList.contains('delete-recipe-form')) {
             e.preventDefault();
 
-            const indexInput = e.target.querySelector('.recipe_id');
-            const index = parseInt(indexInput.value);
+            /* Read fresh from localStorage cuz importing recipesArr from add_recipe.js doesn't work
+               because add recipe js reassigns it irght after export */
+            const recipesArr = JSON.parse(localStorage.getItem('recipesArr') || '[]');
+
+            const index = parseInt(e.target.querySelector('.recipe_id').value);
             const recipeName = recipesArr[index].name;
 
             openDeleteModal(recipeName, function() {

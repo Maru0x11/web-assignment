@@ -1,91 +1,46 @@
 <html>
-
 <head>
     <title>Ratatoulle | Manage Recipes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/styles.css">
-    <style>
-        div {
-            margin: 10px;
-        }
-
-        .recipe-card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin: 20px auto;
-            max-width: 400px;
-            text-align: left;
-            border-radius: 8px;
-        }
-
-        .search-container {
-            margin: 30px auto;
-            max-width: 500px;
-        }
-
-        input[type="text"] {
-            font-size: 18px;
-            padding: 5px;
-            width: 70%;
-        }
-
-        button {
-            padding: 5px 15px;
-            cursor: pointer;
-        }
-    </style>
-    </head>
-
+    <script src="src/delete_modal.js"></script>
+    <script type="module" src="src/manage_recipes.js"></script>
+</head>
 <body>
   <nav class="nav-bar-admin">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="manage_recipes.html">Mange Recipes</a></li>
+      <li><a href="index_admin.html">Home</a></li>
+      <li><a href="manage_recipes.html">Manage Recipes</a></li>
       <li><a href="add_recipe.html">Add Recipes</a></li>
       <li><a href="login.html">Log Out</a></li>
     </ul>
   </nav>
- <main style="text-align: center;">
-        <h2>Manage Recipes</h2>
 
-        <a href="add_recipe.html">+ Add New Recipe</a>
+  <main style="text-align: center;">
+    <h2>Manage Recipes</h2>
+    <a href="add_recipe.html">+ Add New Recipe</a>
 
-        <div class="search-container">
-            <form action="manage_recipes.html" method="get">
-                <input type="text" name="query" placeholder="Search by dish name or ingredient...">
-                <br><br>
-                <input type="radio" name="search_type" value="name" checked> Dish Name &nbsp;
-                <input type="radio" name="search_type" value="ingredient"> Ingredient
-                <br><br>
-                <select name="course">
-                    <option value="">All Courses</option>
-                    <option value="appetizers">Appetizers</option>
-                    <option value="main course">Main Course</option>
-                    <option value="dessert">Dessert</option>
-                </select>
-                &nbsp;
-                <button type="submit">Search</button>
-                &nbsp;
-                <a href="manage_recipes.html">Clear</a>
-            </form>
-        </div>
+    <div class="search-container">
+      <form action="manage_recipes.html" method="get">
+        <input type="text" name="query" placeholder="Search by dish name or ingredient...">
+        <br><br>
+        <input type="radio" name="search_type" value="name" checked> Dish Name &nbsp;
+        <input type="radio" name="search_type" value="ingredient"> Ingredient
+        <br><br>
+        <select name="course">
+          <option value="">All Courses</option>
+          <option value="appetizers">Appetizers</option>
+          <option value="main course">Main Course</option>
+          <option value="dessert">Dessert</option>
+        </select>
+        &nbsp;
+        <button type="submit">Search</button>
+        &nbsp;
+        <a href="manage_recipes.html">Clear</a>
+      </form>
+    </div>
 
-        <div id="recipesList">
-
-            <div class="recipe-card">
-                <h3>Recipe Name: Ratatouille</h3>
-                <p>Course: Main Course</p>
-                <p>A classic French Provencal dish that consists of stewed vegetables</p>
-                <a href="recipe_detail_admin.html"><button>View Details</button></a>
-                <a href="add_recipe.html"><button>Edit</button></a>
-                <form class = "delete-recipe-form" action="manage_recipes.html" method="post" style="display:inline;">
-                    <input type="hidden" class="recipe_id" value="0">
-                    <input type="submit" value="Delete">
-                </form>
-            </div>
-
-        </div>
-    </main>
+    <div id="recipesList"></div>
+  </main>
 </body>
-
 </html>
