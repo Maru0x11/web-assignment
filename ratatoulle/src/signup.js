@@ -102,7 +102,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
     username,
     email,
     password, // NOTE: plain-text password storage is for demo purposes only
-    isAdmin
+    isAdmin:false //NOTE: isAdmin is set to false by default as roles are set by the backend
   };
 
   // Add the new user to the array

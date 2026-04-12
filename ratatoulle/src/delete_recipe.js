@@ -24,7 +24,7 @@ if (recipesContainer) {
                 }
                 else
                 {
-                    window.location.href = 'manage-recipes.html';
+                    window.location.href = 'manage_recipes.html';
                 }
             });
         }

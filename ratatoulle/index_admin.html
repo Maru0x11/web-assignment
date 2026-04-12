@@ -7,7 +7,7 @@
     <link href="src/styles.css" rel="stylesheet">
 </head>
 <body>
-   <nav class="nav-bar-admin">
+  <nav class="nav-bar-admin">
     <ul>
       <li><a href="index_admin.html">Home</a></li>
       <li><a href="manage_recipes.html">Manage Recipes</a></li>
@@ -15,36 +15,31 @@
       <li><a href="login.html">Log Out</a></li>
     </ul>
   </nav>
-    <main style="max-width: 1000px; margin: auto; text-align: center;">
-
-        <section style="padding: 20px 20px;">
-            <h1>Welcome to Ratatoulle</h1>
-            <p>The best place to find, save, and share your favorite recipes.</p>
-
-            <br>
-            <img src="src/assets/images/1.webp" alt="Delicious Food" style="max-width: 100%; height: auto; border-radius: 8px;">
-            <br>
-        </section>
-        <hr>
-        <section style="padding: 20px;">
-            <h3>Why Join Ratatoulle?</h3>
-            <table width="100%" border="0">
-                <tr>
-                    <td width="33%">
-                        <h4>Browse</h4>
-                        <p>Explore recipes from appetizers to desserts.</p>
-                    </td>
-                    <td width="33%">
-                        <h4>Connect</h4>
-                        <p>Join a community of home cooks and professional chefs.</p>
-                    </td>
-                    <td width="33%">
-                        <h4>Organize</h4>
-                        <p>Save your favorite recipes to your personal profile.</p>
-                    </td>
-                </tr>
-            </table>
-        </section>
-    </main>
+  <main class="main-index">
+    <section class="section-index">
+      <h1>Welcome to Ratatoulle</h1>
+      <p>The best place to find, save, and share your favorite recipes.</p>
+      <br>
+      <img src="src/assets/images/1.webp" alt="Delicious Food" class="asset-img-first">
+    </section>
+    <hr>
+    <section class="section-index">
+      <h3>Why Join Ratatoulle?</h3>
+      <div class="container-index">
+        <div class="card-index">
+          <h4>Browse</h4>
+          <p>Explore recipes from appetizers to desserts.</p>
+        </div>
+        <div class="card-index">
+          <h4>Connect</h4>
+          <p>Join a community of home cooks and professional chefs.</p>
+        </div>
+        <div class="card-index">
+          <h4>Organize</h4>
+          <p>Save your favorite recipes to your personal profile.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
