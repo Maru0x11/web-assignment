@@ -6,7 +6,6 @@
     <title>Ratatoulle | Add Recipe</title>
     <link rel="stylesheet" href="src/styles.css">
     <script src="src/add_recipe.js" type="module"></script>
-    <script src="src/index.js"></script>
 </head>
 <body>
    <nav class="nav-bar-admin">
@@ -49,47 +48,29 @@
             <h3>Ingredients</h3>
             <p>Enter each ingredient with its name and quantity.</p>
 
-            <table class="ingredients-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Ingredient Name *</th>
-                        <th>Quantity *</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><input type="text" name="ing_name" placeholder="e.g. Flour"></td>
-                        <td><input type="text" name="ing_qty" placeholder="e.g. 200g"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><input type="text" name="ing_name" placeholder="e.g. Eggs"></td>
-                        <td><input type="text" name="ing_qty" placeholder="e.g. 3"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><input type="text" name="ing_name" placeholder="e.g. Salt"></td>
-                        <td><input type="text" name="ing_qty" placeholder="e.g. 1 tsp"></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><input type="text" name="ing_name" placeholder="e.g. Butter"></td>
-                        <td><input type="text" name="ing_qty" placeholder="e.g. 50g"></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><input type="text" name="ing_name" placeholder="e.g. Garlic"></td>
-                        <td><input type="text" name="ing_qty" placeholder="e.g. 2 cloves"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="ingredients-empty-state" id="empty-state">
+              <div class="icon">+</div>
+               <p class="label">Click the button below to add your first ingredient</p>
+            </div>
+            
+            <div class="ingredients-table-wrapper">
+                <table class="ingredients-table hidden" id="ingredients-table">
+                    <thead>
+                         <tr>
+                            <th>#</th>
+                            <th>Ingredient Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                       </thead>
+                    <tbody id="ingredients-tbody">
+                    <!-- the ingredients rows are built dynamically via js -->
+                  </tbody>
+                </table>
+            </div>
 
-            <br>
-            <p id="add-message"> A new Ingredient has been added!</p>
+            <p id="add-message">Ingredient added!</p>
             <p id="error-message">At least one ingredient is required!</p>
-            <p id="submit-message"> You have sumbited the recipe successfully!</p>
+            <p id="submit-message">Recipe submitted successfully!</p>
             <input type="button" value="Add Ingridient" class="btn-add">
              <input type="submit" value="Add Recipe" class="btn-submit">
             <a href="manage_recipes.html" class="btn-cancel">Cancel</a>
