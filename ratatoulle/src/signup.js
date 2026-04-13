@@ -55,7 +55,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
   const email    = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
   const confirm  = document.getElementById('confirm').value;
-  const isAdmin  = document.getElementById('admin').checked;
+  // const isAdmin  = document.getElementById('admin').checked; 
 
   // --- Input Validation ---
 
