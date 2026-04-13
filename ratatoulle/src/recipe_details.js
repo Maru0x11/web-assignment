@@ -1,37 +1,39 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Get the ID from the URL (e.g., recipe_detail.html?id=0)
-    const urlParams = new URLSearchParams(window.location.search);
-    const recipeId = urlParams.get('id');
+document.addEventListener("DOMContentLoaded", () => {
+  const recipeName = new URLSearchParams(window.location.search).get("name");
+  const recipes = JSON.parse(localStorage.getItem("recipesArr") || "[]");
+  const recipe = recipes.find((r) => r.name === recipeName);
 
-    if (recipeId === null) return;
+  if (recipe) {
+    document.getElementById("recipe-name").textContent = recipe.name;
+    document.getElementById("recipe-course").textContent = recipe.course;
+    document.getElementById("recipe-description").textContent =
+      recipe.description;
 
-    // 2. Get the recipes from LocalStorage
-    const recipesArr = JSON.parse(localStorage.getItem('recipesArr') || '[]');
-    const recipe = recipesArr[parseInt(recipeId, 10)];
+    const tbody = document.getElementById("recipe-ingredients");
+    recipe.ingredients.forEach((ing, i) => {
+      if (!ing.name.trim()) return;
+      tbody.innerHTML += `<tr><td>${i + 1}</td><td>${ing.name}</td><td>${ing.quantity}</td></tr>`;
+    });
+  } else {
+    document.querySelector(".recipe-detail-main").innerHTML =
+      "<h1>Recipe not found</h1><a href='search.html'>Back to Browse</a>";
+  }
 
-    if (recipe) {
-        // 3. Inject the data into the HTML
-        // We use textContent for safety to prevent XSS
-        const titleElem = document.querySelector('h1');
-        if (titleElem) titleElem.textContent = recipe.name;
+  const favForm = document.getElementById("add-fav-form");
+  if (favForm) {
+    favForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!recipe) return;
 
-        // Matching the structure seen in your screenshot
-        const courseElem = document.querySelector('p'); 
-        if (courseElem) courseElem.textContent = `Course: ${recipe.course}`;
-
-        const ingTbody = document.querySelector('tbody');
-        if (ingTbody) {
-            ingTbody.innerHTML = ''; // Clear the dark placeholder row
-            recipe.ingredients.forEach((ing, index) => {
-                const row = `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${ing.name}</td>
-                        <td>${ing.quantity}</td>
-                    </tr>
-                `;
-                ingTbody.insertAdjacentHTML('beforeend', row);
-            });
-        }
-    }
+      let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+      if (favorites.some((f) => f.name === recipe.name)) {
+        alert("This recipe is already in your favorites!");
+      } else {
+        favorites.push(recipe);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        alert("Added to Favorites!");
+      }
+    });
+  }
 });
+
