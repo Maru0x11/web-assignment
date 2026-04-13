@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatoulle | My Favorites</title>
     <link href="src/styles.css" rel="stylesheet">
+    <script src="src/favorites.js" type="module"></script>
 </head>
 <body>
   <nav class="nav-bar-user">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="search.html">Browse</a></li>
-      <li><a href="favorites.html">Favourites</a></li>
+      <li><a href="favorites.html">Favorites</a></li>
       <li><a href="login.html">Log Out</a></li>
     </ul>
   </nav>
+
     <main class="favorites-main">
         <h1>My Favorites</h1>
         <p>Recipes you have saved to your favorites list.</p>
+        
         <table class="favorites-table">
             <thead>
                 <tr>
@@ -29,33 +32,12 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Ratatouille</td>
-                    <td>Main Course</td>
-                    <td>A classic French Provencal dish that consists of stewed vegetables.</td>
-                    <td>
-                        <ul>
-                            <li>Eggplant &mdash; 1</li>
-                            <li>Sliced Zucchini &mdash; 2</li>
-                            <li>Garlic &mdash; 3 cloves</li>
-                            <li>Parmesan Cheese &mdash; 1 cup</li>
-                            <li>Dried Parsley &mdash; 2 tsp</li>
-                            <li>Large Tomato &mdash; 2</li>
-                            <li>Large Onion &mdash; 1</li>
-                            <li>Green or Red Pepper &mdash; 1</li>
-                        </ul>
-                    </td>
-                    <td class="favorites-actions">
-                        <a href="recipe_detail.html">View</a>
-                        <a href="favorites.html">Remove</a>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody id="favorites-list">
+                </tbody>
         </table>
+
         <br>
-        <a href="search.html">Browse More Recipes</a>
+        <a href="search.html" class="btn-card">Browse More Recipes</a>
     </main>
 </body>
 </html>

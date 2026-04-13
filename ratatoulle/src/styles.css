@@ -936,7 +936,32 @@ a:hover {
   border-color: #c0392b;
   color: #c0392b;
 }
+/** Favorites **/
+#favorites-list td {
+    border: 1px solid #333;
+    padding: 12px;
+}
 
+#favorites-list ul {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 0.85rem;
+}
+/** end favorites **/
+.btn-remove {
+    background-color: transparent;
+    color: #c0392b; 
+    border: 1px solid #c0392b;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-remove:hover {
+    background-color: #c0392b;
+    color: white;
+}
 /** end toast **/
 
 /** misc**/

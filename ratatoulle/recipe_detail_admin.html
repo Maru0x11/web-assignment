@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatoulle | Recipe Detail (Admin)</title>
     <link href="src/styles.css" rel="stylesheet">
-    <script src="src/delete_modal.js"></script>
     <script type="module" src="src/delete_recipe.js"></script>
 </head>
 <body>
@@ -38,9 +37,9 @@
     </table>
 
     <br>
-    <a href="add_recipe.html">Edit Recipe</a>
+    <a id="edit-link" href="add_recipe.html">Edit Recipe</a>
     &nbsp;
-    <div id="recipesList" style="display:inline;">
+    <div style="display:inline;">
         <form class="delete-recipe-form" style="display:inline;">
             <input type="hidden" class="recipe_id" value="">
             <input type="submit" class="btn-delete-detail-admin" value="Delete Recipe">
@@ -61,14 +60,16 @@
         document.getElementById('detail-course').textContent = recipe.course;
         document.getElementById('detail-description').textContent = recipe.description;
 
-        /* Set the index so delete_recipe.js knows which entry to remove */
         document.querySelector('.recipe_id').value = id;
+        document.getElementById('edit-link').href = 'add_recipe.html?id=' + id;
 
         const tbody = document.getElementById('detail-ingredients');
         recipe.ingredients.forEach((ing, i) => {
             if (!ing.name.trim()) return;
             tbody.innerHTML += `<tr><td>${i + 1}</td><td>${ing.name}</td><td>${ing.quantity}</td></tr>`;
         });
+    } else {
+        document.querySelector('.recipe-detail-main').innerHTML = "<h1>Recipe not found</h1><a href='manage_recipes.html'>Back to Manage</a>";
     }
 </script>
 </body>
