@@ -4,112 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatoulle | Edit Recipe</title>
-    <style>
-        * { box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; margin: 0; background: #fafafa; color: #333; }
-
-        /* ── Nav ── */
-        header { background: #fff; border-bottom: 2px solid #e0e0e0; }
-        nav table { width: 100%; }
-        nav h2 { margin: 0; color: #c0392b; font-size: 1.5rem; }
-        nav a { color: #555; text-decoration: none; font-size: 0.95rem; }
-        nav a:hover { color: #c0392b; }
-
-        /* ── Main ── */
-        main { max-width: 760px; margin: 30px auto; padding: 0 20px; }
-        h1 { color: #c0392b; margin-bottom: 4px; }
-        .subtitle { color: #666; margin-top: 0 ; margin-bottom: 24px; }
-
-        /* ── Card ── */
-        .card { background: #fff; border-radius: 8px; padding: 28px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); margin-bottom: 24px; }
-        .card h3 { margin-top: 0; color: #c0392b; border-bottom: 1px solid #f0d0d0; padding-bottom: 8px; }
-
-        /* ── Form ── */
-        .field { margin-bottom: 16px; }
-        label { display: block; font-weight: bold; font-size: 0.88rem; margin-bottom: 5px; color: #444; }
-        input[type="text"],
-        select,
-        textarea {
-            width: 100%; padding: 9px 11px; border: 1px solid #ccc;
-            border-radius: 4px; font-size: 0.95rem; font-family: Arial, sans-serif;
-        }
-        input[type="text"]:focus,
-        select:focus,
-        textarea:focus { outline: none; border-color: #c0392b; box-shadow: 0 0 0 2px rgba(192,57,43,0.12); }
-        textarea { resize: vertical; }
-
-        /* ── Ingredients table ── */
-        .ing-table { width: 100%; border-collapse: collapse; }
-        .ing-table th { background: #f5e6e6; padding: 9px 10px; text-align: left; font-size: 0.85rem; border: 1px solid #ddd; }
-        .ing-table td { padding: 6px 8px; border: 1px solid #ddd; }
-        .ing-table input { width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 0.9rem; }
-        .ing-table td:first-child { width: 40px; text-align: center; color: #888; font-size: 0.85rem; }
-
-        /* ── Buttons ── */
-        .actions { display: flex; gap: 12px; align-items: center; margin-top: 8px; }
-        .btn-save {
-            background: #c0392b; color: #fff; padding: 10px 28px;
-            border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer;
-        }
-        .btn-save:hover { background: #a93226; }
-        .btn-cancel { color: #888; text-decoration: none; font-size: 0.9rem; }
-        .btn-cancel:hover { color: #333; }
-
-        /* ── Success banner (hidden by default) ── */
-        .banner {
-            display: none; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;
-            border-radius: 4px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.9rem;
-        }
-        .banner.show { display: block; }
-    </style>
+    <link href="src/styles.css" rel="stylesheet">
+    <script src="src/edit_recipes.js" defer></script>
 </head>
 <body>
 
-<!-- ── Navigation (Admin view) ── -->
-<header>
-    <nav>
-        <table border="0" cellpadding="12">
-            <tr>
-                <td><h2>Ratatoulle</h2></td>
-                <td align="right">
-                    <a href="index.html">Home</a> &nbsp;|&nbsp;
-                    <a href="search.html">Browse Recipes</a> &nbsp;|&nbsp;
-                    <a href="recipe_list.html">Manage Recipes</a> &nbsp;|&nbsp;
-                    <a href="add_recipe.html">Add Recipe</a> &nbsp;|&nbsp;
-                    <a href="login.html">Logout</a>
-                </td>
-            </tr>
-        </table>
-    </nav>
-</header>
+  <nav class="nav-bar-admin">
+    <ul>
+      <li><a href="index_admin.html">Home</a></li>
+      <li><a href="manage_recipes.html">Manage Recipes</a></li>
+      <li><a href="add_recipe.html">Add Recipes</a></li>
+      <li><a href="login.html">Log Out</a></li>
+    </ul>
+  </nav>
 
-<main>
+<main class="main-add-recipe">
     <h1>Edit Recipe</h1>
-    <p class="subtitle"><strong>Admin access only.</strong> Modify the recipe details below and save your changes.</p>
+    <p class="subtitle-text"><strong>Admin access only.</strong> Modify the recipe details below and save your changes.</p>
 
-    <!-- Success banner -->
-    <div class="banner" id="successBanner">&#10003; Recipe updated successfully!</div>
+    <p id="submit-message">Recipe updated successfully!</p>
 
-    <form id="editForm" action="recipe_list.html" method="get" onsubmit="handleSave(event)">
+    <form id="editForm" action="manage_recipes.html" method="get">
 
-        <!-- ── Basic Information ── -->
-        <div class="card">
+        <div class="form-card">
             <h3>Basic Information</h3>
 
-            <div class="field">
+            <div class="form-group-add-recipe">
                 <label for="recipe_id">Recipe ID</label>
-                <input type="text" id="recipe_id" name="recipe_id" value="1" readonly
-                       style="background:#f5f5f5; color:#888; cursor:not-allowed;">
+                <input type="text" id="recipe_id" name="recipe_id" value="1" readonly>
             </div>
 
-            <div class="field">
+            <div class="form-group-add-recipe">
                 <label for="recipe_name">Recipe Name *</label>
-                <input type="text" id="recipe_name" name="recipe_name"
-                       value="Bruschetta" maxlength="100" required
-                       placeholder="e.g. Spaghetti Carbonara">
+                <input type="text" name="recipe_name" value="" placeholder="e.g. Spaghetti Carbonara">
             </div>
 
-            <div class="field">
+            <div class="form-group-add-recipe">
                 <label for="course">Course *</label>
                 <select id="course" name="course" required>
                     <option value="">-- Select course --</option>
@@ -119,19 +49,17 @@
                 </select>
             </div>
 
-            <div class="field">
+            <div class="form-group-add-recipe">
                 <label for="description">Description *</label>
-                <textarea id="description" name="description" rows="4" maxlength="500" required
-                          placeholder="Describe the recipe...">Grilled bread topped with fresh tomatoes, garlic, and basil drizzled with olive oil.</textarea>
+                <textarea id="description" name="description" required placeholder="Describe the recipe..."></textarea>
             </div>
         </div>
 
-        <!-- ── Ingredients ── -->
-        <div class="card">
+        <div class="form-card">
             <h3>Ingredients</h3>
-            <p style="color:#666; font-size:0.88rem; margin-top:-8px;">Update the name and quantity for each ingredient.</p>
+            <p class="ingredients-subtitle">Update the name and quantity for each ingredient.</p>
 
-            <table class="ing-table">
+            <table class="ingredients-table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -142,60 +70,25 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td><input type="text" name="ing_name_1" value="Bread" placeholder="e.g. Flour" required></td>
-                        <td><input type="text" name="ing_qty_1"  value="4 slices" placeholder="e.g. 200g" required></td>
+                        <td><input type="text" name="ing_name_1" value="" placeholder="e.g. Flour" required></td>
+                        <td><input type="text" name="ing_qty_1"  value="" placeholder="e.g. 200g" required></td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td><input type="text" name="ing_name_2" value="Tomatoes" placeholder="e.g. Eggs"></td>
-                        <td><input type="text" name="ing_qty_2"  value="2" placeholder="e.g. 3"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><input type="text" name="ing_name_3" value="Basil" placeholder="e.g. Salt"></td>
-                        <td><input type="text" name="ing_qty_3"  value="1 bunch" placeholder="e.g. 1 tsp"></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><input type="text" name="ing_name_4" value="Olive Oil" placeholder="e.g. Butter"></td>
-                        <td><input type="text" name="ing_qty_4"  value="2 tbsp" placeholder="e.g. 50g"></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><input type="text" name="ing_name_5" value="Garlic" placeholder="e.g. Garlic"></td>
-                        <td><input type="text" name="ing_qty_5"  value="1 clove" placeholder="e.g. 2 cloves"></td>
+                        <td><input type="text" name="ing_name_2" value="" placeholder="e.g. Eggs"></td>
+                        <td><input type="text" name="ing_qty_2"  value="" placeholder="e.g. 3"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- ── Actions ── -->
-        <div class="actions">
-            <button type="submit" class="btn-save">Save Changes</button>
-            <a href="recipe_list.html" class="btn-cancel">Cancel</a>
+        <div class="form-actions-row">
+            <button type="submit" class="btn-submit">Save Changes</button>
+            <a href="manage_recipes.html" class="btn-cancel">Cancel</a>
         </div>
 
     </form>
 </main>
 
-<script>
-    function handleSave(e) {
-        e.preventDefault();
-        // Validate required fields
-        const name = document.getElementById('recipe_name').value.trim();
-        const course = document.getElementById('course').value;
-        const desc = document.getElementById('description').value.trim();
-        if (!name || !course || !desc) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-        // Show success banner
-        const banner = document.getElementById('successBanner');
-        banner.classList.add('show');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        // In a real app we'd submit to backend; redirect after brief delay
-        setTimeout(() => { window.location.href = 'recipe_list.html'; }, 1500);
-    }
-</script>
 </body>
 </html>
