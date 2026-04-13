@@ -1,32 +1,43 @@
-import { renderRecipes } from './render_recipes.js';
+import { renderRecipes } from "./render_recipes.js";
 
-const recipesContainer = document.getElementById('recipesList');
+// Listen for the Delete button on the Manage Recipes list
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("btn-delete")) {
+    e.preventDefault();
+    const index = parseInt(e.target.getAttribute("data-index"));
+    executeDelete(index, false);
+  }
+});
 
-if (recipesContainer) {
-    recipesContainer.addEventListener('submit', function(e) {
+// Listen for the Delete button on the Admin Detail page
+document.addEventListener("submit", function (e) {
+  if (e.target.classList.contains("delete-recipe-form")) {
+    e.preventDefault();
+    const index = parseInt(e.target.querySelector(".recipe_id").value);
+    executeDelete(index, true);
+  }
+});
 
-        if (e.target.classList.contains('delete-recipe-form')) {
-            e.preventDefault();
+// The actual delete logic
+function executeDelete(index, redirect) {
+  const recipesArr = JSON.parse(localStorage.getItem("recipesArr") || "[]");
+  if (isNaN(index) || !recipesArr[index]) return;
 
-            /* Read fresh from localStorage cuz importing recipesArr from add_recipe.js doesn't work
-               because add recipe js reassigns it irght after export */
-            const recipesArr = JSON.parse(localStorage.getItem('recipesArr') || '[]');
+  const recipeName = recipesArr[index].name;
 
-            const index = parseInt(e.target.querySelector('.recipe_id').value);
-            const recipeName = recipesArr[index].name;
+  // CRITICAL FIX: Ensure the HTML for the modal actually exists before trying to open it!
+  if (typeof ensureDeleteModal === "function") {
+    ensureDeleteModal();
+  }
 
-            openDeleteModal(recipeName, function() {
-                recipesArr.splice(index, 1);
-                localStorage.setItem('recipesArr', JSON.stringify(recipesArr));
-                if(document.querySelector('.recipe-card'))
-                {
-                    renderRecipes();
-                }
-                else
-                {
-                    window.location.href = 'manage_recipes.html';
-                }
-            });
-        }
-    });
+  openDeleteModal(recipeName, function () {
+    recipesArr.splice(index, 1); // Remove from array
+    localStorage.setItem("recipesArr", JSON.stringify(recipesArr)); // Save to storage
+
+    if (redirect) {
+      window.location.href = "manage_recipes.html";
+    } else {
+      renderRecipes(); // Refresh the list automatically
+    }
+  });
 }
